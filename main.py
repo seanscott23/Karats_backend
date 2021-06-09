@@ -69,7 +69,7 @@ database = firebase.database()
 
 
 @app.post("/api/get/alls/")
-def get_gems_by_user():
+async def get_gems_by_user():
   print("entering")
   try:
     array_of_user_gems = []
@@ -80,7 +80,7 @@ def get_gems_by_user():
       for x in all_gems.pyres:
         print(x.val())
         array_of_user_gems.append(x.item)
-      return array_of_user_gems
+      return { "val" : array_of_user_gems }
   except:
     return "Database is empty"
 

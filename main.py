@@ -12,29 +12,29 @@ import os
 from Reuse import gems
 import uvicorn
 
-settings = config.Settings()
+# settings = config.Settings()
 app = FastAPI()
 
-origins = [
-  "http://localhost:3000/*",
-  "http://localhost:3000",
-  "http://www.karatsapp.com",
-]
+# origins = [
+#   "http://localhost:3000/*",
+#   "http://localhost:3000",
+#   "http://www.karatsapp.com",
+# ]
 
-app.add_middleware(
-  CORSMiddleware,
-  allow_origins=origins,
-  allow_credentials=True,
-  allow_methods=["*"],
-  allow_headers=["*"],
-)
+# app.add_middleware(
+#   CORSMiddleware,
+#   allow_origins=origins,
+#   allow_credentials=True,
+#   allow_methods=["*"],
+#   allow_headers=["*"],
+# )
 
-app.include_router(userinfo.router)
-app.include_router(audio.router)
-app.include_router(gems.router)
+# app.include_router(userinfo.router)
+# app.include_router(audio.router)
+# app.include_router(gems.router)
 
 
-app.get("/")
+@app.get("/")
 def welcome():
       return "Hello world"
 
@@ -49,24 +49,24 @@ def welcome():
 #   "measurementId": settings.MEASUREMENT_ID
 # };
 
-firebaseConfig = {
-  "apiKey": os.environ.get("API_KEY_TEST"),
-  "authDomain": os.environ.get("AUTH_DOMAIN_TEST"),
-  "databaseURL": os.environ.get("DATABASE_URL_TEST"),
-  "projectId": os.environ.get("PROJECT_ID_TEST"),
-  "storageBucket": os.environ.get("STORAGE_BUCKET_TEST"),
-  "messagingSenderId": os.environ.get("MESSAGING_SENDER_ID_TEST"),
-  "appId": os.environ.get("APP_ID_TEST"),
-  "measurementId": os.environ.get("MEASUREMENT_ID_TEST")
-};
+# firebaseConfig = {
+#   "apiKey": os.environ.get("API_KEY_TEST"),
+#   "authDomain": os.environ.get("AUTH_DOMAIN_TEST"),
+#   "databaseURL": os.environ.get("DATABASE_URL_TEST"),
+#   "projectId": os.environ.get("PROJECT_ID_TEST"),
+#   "storageBucket": os.environ.get("STORAGE_BUCKET_TEST"),
+#   "messagingSenderId": os.environ.get("MESSAGING_SENDER_ID_TEST"),
+#   "appId": os.environ.get("APP_ID_TEST"),
+#   "measurementId": os.environ.get("MEASUREMENT_ID_TEST")
+# };
 
 
 
-firebase = pyrebase.initialize_app(firebaseConfig)
-storage = firebase.storage()
-database = firebase.database()
+# firebase = pyrebase.initialize_app(firebaseConfig)
+# storage = firebase.storage()
+# database = firebase.database()
 
-if __name__ == '__main__':
-   app.run()
+# if __name__ == '__main__':
+#    app.run()
 
 

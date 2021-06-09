@@ -10,6 +10,7 @@ import pymongo
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from Reuse import gems
+import uvicorn
 
 settings = config.Settings()
 app = FastAPI()
@@ -64,5 +65,8 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 storage = firebase.storage()
 database = firebase.database()
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8080, log_level='info')
 
 

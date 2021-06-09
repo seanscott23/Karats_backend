@@ -71,17 +71,17 @@ database = firebase.database()
 @app.get("/api/get/alls/")
 async def get_gems_by_user():
   print("entering")
-  # try:
-  array_of_user_gems = []
-  all_gems = database.child("GEMS").get()
-  if type(all_gems) != 'NoneType':
-    for x in all_gems.pyres:
-      print("entering2")   
-      print(x.val())
-      array_of_user_gems.append(x.item)
-    return { "val" : array_of_user_gems }
-  # except:
-  #   return "Database is empty"
+  try:
+    array_of_user_gems = []
+    all_gems = database.child("GEMS").get()
+    if type(all_gems) != 'NoneType':
+      for x in all_gems.pyres:
+        print("entering2")   
+        print(x.val())
+        array_of_user_gems.append(x.item)
+      return { "val" : array_of_user_gems }
+  except:
+    return "Database is empty"
 
 
 @app.post("/api")

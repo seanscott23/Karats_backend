@@ -15,23 +15,23 @@ import uvicorn
 # settings = config.Settings()
 app = FastAPI()
 
-# origins = [
-#   "http://localhost:3000/*",
-#   "http://localhost:3000",
-#   "http://www.karatsapp.com",
-# ]
+origins = [
+  "http://localhost:3000/*",
+  "http://localhost:3000",
+  "http://www.karatsapp.com",
+]
 
-# app.add_middleware(
-#   CORSMiddleware,
-#   allow_origins=origins,
-#   allow_credentials=True,
-#   allow_methods=["*"],
-#   allow_headers=["*"],
-# )
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=origins,
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
+)
 
 # app.include_router(userinfo.router)
 # app.include_router(audio.router)
-# app.include_router(gems.router)
+app.include_router(gems.router)
 
 
 @app.get("/")
@@ -68,13 +68,13 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.get("/api/get/all/")
+@app.post("/api/get/all/")
 def get_gems_by_user():
   print("entering")
   try:
     array_of_user_gems = []
-    print(database.child("GEMS").get("#$#4"))
-    all_gems = database.child("GEMS")
+    print(database.child("GEMS"))
+    all_gems = database.child("GEMS").get("#$#4")
     print(type(all_gems))
     if type(all_gems) != 'NoneType':
       for x in all_gems.pyres:
@@ -89,7 +89,7 @@ def get_gems_by_user():
 def get_gems():
   return {"yessir": "crazy horse"}
 
-# if __name__ == '__main__':
-#    app.run()
+if __name__ == '__main__':
+  uvicorn.run(app, host='0.0.0.0')
 
 

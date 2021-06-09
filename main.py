@@ -36,6 +36,7 @@ app.include_router(gems.router)
 
 @app.get("/")
 def welcome():
+    app.run()
     return "Hello world"
 
 
@@ -75,7 +76,7 @@ def get_gems_by_user():
     array_of_user_gems = []
     print(database.child("GEMS"))
     all_gems = database.child("GEMS").get("")
-    print(all_gems.pyres)
+    print(all_gems.key)
     if type(all_gems) != 'NoneType':
       for x in all_gems.pyres:
         print(x)

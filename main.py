@@ -71,10 +71,9 @@ database = firebase.database()
 @app.post("/api/get/all/")
 def get_gems_by_user():
     try:
-      print("money money")
       array_of_user_gems = []
       all_gems = database.child("GEMS").get("#$#4")
-      
+      print(all_gems)
       if type(all_gems) != 'NoneType':
         for x in all_gems.pyres:
             # if x.item[1]["ownerID"] == gem.ownerID:

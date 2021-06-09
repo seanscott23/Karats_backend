@@ -39,21 +39,6 @@ def welcome():
     return "Hello world"
 
 
-@app.post("/api/get/all/")
-def get_gems_by_user():
-    try:
-      print("money money")
-      array_of_user_gems = []
-      all_gems = main.database.child("GEMS").get("#$#4")
-      
-      if type(all_gems) != 'NoneType':
-        for x in all_gems.pyres:
-            # if x.item[1]["ownerID"] == gem.ownerID:
-            array_of_user_gems.append(x.item)
-        return array_of_user_gems
-    except:
-        return "Database is empty"
-
 # firebaseConfig = {
 #   "apiKey": settings.API_KEY,
 #   "authDomain": settings.AUTH_DOMAIN,
@@ -65,22 +50,38 @@ def get_gems_by_user():
 #   "measurementId": settings.MEASUREMENT_ID
 # };
 
-# firebaseConfig = {
-#   "apiKey": os.environ.get("API_KEY_TEST"),
-#   "authDomain": os.environ.get("AUTH_DOMAIN_TEST"),
-#   "databaseURL": os.environ.get("DATABASE_URL_TEST"),
-#   "projectId": os.environ.get("PROJECT_ID_TEST"),
-#   "storageBucket": os.environ.get("STORAGE_BUCKET_TEST"),
-#   "messagingSenderId": os.environ.get("MESSAGING_SENDER_ID_TEST"),
-#   "appId": os.environ.get("APP_ID_TEST"),
-#   "measurementId": os.environ.get("MEASUREMENT_ID_TEST")
-# };
+firebaseConfig = {
+  "apiKey": os.environ.get("API_KEY_TEST"),
+  "authDomain": os.environ.get("AUTH_DOMAIN_TEST"),
+  "databaseURL": os.environ.get("DATABASE_URL_TEST"),
+  "projectId": os.environ.get("PROJECT_ID_TEST"),
+  "storageBucket": os.environ.get("STORAGE_BUCKET_TEST"),
+  "messagingSenderId": os.environ.get("MESSAGING_SENDER_ID_TEST"),
+  "appId": os.environ.get("APP_ID_TEST"),
+  "measurementId": os.environ.get("MEASUREMENT_ID_TEST")
+};
 
 
 
-# firebase = pyrebase.initialize_app(firebaseConfig)
-# storage = firebase.storage()
-# database = firebase.database()
+firebase = pyrebase.initialize_app(firebaseConfig)
+storage = firebase.storage()
+database = firebase.database()
+
+
+@app.post("/api/get/all/")
+def get_gems_by_user():
+    try:
+      print("money money")
+      array_of_user_gems = []
+      all_gems = database.child("GEMS").get("#$#4")
+      
+      if type(all_gems) != 'NoneType':
+        for x in all_gems.pyres:
+            # if x.item[1]["ownerID"] == gem.ownerID:
+            array_of_user_gems.append(x.item)
+        return array_of_user_gems
+    except:
+        return "Database is empty"
 
 # if __name__ == '__main__':
 #    app.run()

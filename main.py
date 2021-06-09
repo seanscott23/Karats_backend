@@ -8,6 +8,7 @@ import config
 import pyrebase
 import pymongo
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 settings = config.Settings()
 app = FastAPI()
@@ -40,14 +41,14 @@ app.include_router(audio.router)
 # };
 
 firebaseConfig = {
-  "apiKey": API_KEY_TEST,
-  "authDomain": AUTH_DOMAIN_TEST,
-  "databaseURL": DATABASE_URL_TEST,
-  "projectId": PROJECT_ID_TEST,
-  "storageBucket": STORAGE_BUCKET_TEST,
-  "messagingSenderId": MESSAGING_SENDER_ID_TEST,
-  "appId": APP_ID_TEST,
-  "measurementId": MEASUREMENT_ID_TEST
+  "apiKey": os.environ.get("API_KEY_TEST"),
+  "authDomain": os.environ.get("AUTH_DOMAIN_TEST"),
+  "databaseURL": os.environ.get("DATABASE_URL_TEST"),
+  "projectId": os.environ.get("PROJECT_ID_TEST"),
+  "storageBucket": os.environ.get("STORAGE_BUCKET_TEST"),
+  "messagingSenderId": os.environ.get("MESSAGING_SENDER_ID_TEST"),
+  "appId": os.environ.get("APP_ID_TEST"),
+  "measurementId": os.environ.get("MEASUREMENT_ID_TEST")
 };
 
 

@@ -33,6 +33,10 @@ app.include_router(audio.router)
 app.include_router(gems.router)
 
 
+app.get("/")
+def welcome():
+      return "Hello world"
+
 # firebaseConfig = {
 #   "apiKey": settings.API_KEY,
 #   "authDomain": settings.AUTH_DOMAIN,

@@ -73,7 +73,7 @@ async def get_gems_by_user():
     try:
       array_of_user_gems = []
       print(database.child("GEMS").get("#$#4"))
-      all_gems = database.child("GEMS").get("#$#4")
+      all_gems = database.child("GEMS")
       print(type(all_gems))
       if type(all_gems) != 'NoneType':
         for x in all_gems.pyres:

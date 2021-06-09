@@ -36,7 +36,7 @@ app.include_router(gems.router)
 
 @app.get("/")
 def welcome():
-    return "Hello world"
+    return "EAT A DICK! :)"
 
 
 # firebaseConfig = {

@@ -72,7 +72,7 @@ database = firebase.database()
 def get_gems_by_user():
     try:
       array_of_user_gems = []
-      print(database)
+      print(database.child("GEMS"))
       all_gems = database.child("GEMS").get("#$#4")
       if type(all_gems) != 'NoneType':
         for x in all_gems.pyres:

@@ -68,13 +68,13 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.post("/api/get/all/")
+@app.post("/api/get/alls/")
 def get_gems_by_user():
   print("entering")
   try:
     array_of_user_gems = []
     print(database.child("GEMS"))
-    all_gems = database.child("GEMS").get("#$#4")
+    all_gems = database.child("GEMS").get("")
     print(type(all_gems))
     if type(all_gems) != 'NoneType':
       for x in all_gems.pyres:
@@ -90,6 +90,7 @@ def get_gems():
   return {"yessir": "crazy horse"}
 
 if __name__ == '__main__':
+  print("hello from me")
   uvicorn.run(app, host='0.0.0.0')
 
 

@@ -40,10 +40,10 @@ def welcome():
 
 
 @app.post("api/get/all/")
-def get_gems_by_user(gem:Gems):
+def get_gems_by_user():
     try:
         array_of_user_gems = []
-        all_gems = main.database.child("GEMS").get(gem.token)
+        all_gems = main.database.child("GEMS").get("#$#4")
         
         if type(all_gems) != 'NoneType':
             for x in all_gems.pyres:

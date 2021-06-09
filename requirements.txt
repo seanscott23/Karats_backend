@@ -47,8 +47,6 @@ python-multipart
 python-snappy
 pytz
 PyYAML
-requests
-requests-toolbelt
 rsa
 six
 soupsieve

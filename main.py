@@ -72,15 +72,15 @@ database = firebase.database()
 def get_gems_by_user():
     try:
       array_of_user_gems = []
+      print(database)
       all_gems = database.child("GEMS").get("#$#4")
-      print(all_gems)
       if type(all_gems) != 'NoneType':
         for x in all_gems.pyres:
             # if x.item[1]["ownerID"] == gem.ownerID:
             array_of_user_gems.append(x.item)
         return array_of_user_gems
     except:
-        return "Database is empty"
+      return "Database is empty"
 
 # if __name__ == '__main__':
 #    app.run()

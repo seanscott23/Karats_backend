@@ -31,6 +31,7 @@ def post_gems_(gem: Gems):
   
 @router.post("/api/get/gems/")
 def get_gems_by_user(gem:Gems):
+    print("finally hitting")
     try:
         array_of_user_gems = []
         all_gems = main.database.child("GEMS").get(gem.token)
@@ -67,10 +68,9 @@ def get_gems_by_user(gem:Gems):
     try:
         array_of_user_gems = []
         all_gems = main.database.child("GEMS").get(gem.token)
-        
         if type(all_gems) != 'NoneType':
             for x in all_gems.pyres:
-                # if x.item[1]["ownerID"] == gem.ownerID:
+                print(x.val())
                 array_of_user_gems.append(x.item)
             return array_of_user_gems
     except:

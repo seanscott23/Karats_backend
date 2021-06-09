@@ -68,8 +68,9 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.post("/api/get/all/")
+@app.get("/api/get/all/")
 def get_gems_by_user():
+  print("entering")
   try:
     array_of_user_gems = []
     print(database.child("GEMS").get("#$#4"))

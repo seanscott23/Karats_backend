@@ -68,10 +68,11 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.get("/api/get/all/")
+@app.post("/api/get/all/")
 async def get_gems_by_user():
     try:
       array_of_user_gems = []
+      print(database.child("GEMS").get("#$#4"))
       all_gems = database.child("GEMS").get("#$#4")
       print(type(all_gems))
       if type(all_gems) != 'NoneType':

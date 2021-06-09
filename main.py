@@ -36,7 +36,6 @@ app.include_router(gems.router)
 
 @app.get("/")
 def welcome():
-    uvicorn.run(app)
     return "Hello world"
 
 
@@ -77,6 +76,8 @@ def get_gems_by_user():
     print(database.child("GEMS"))
     all_gems = database.child("GEMS").get()
     print(all_gems.key)
+    for result in all_gems.each():
+      print(result.val())
     if type(all_gems) != 'NoneType':
       for x in all_gems.pyres:
         print(x)

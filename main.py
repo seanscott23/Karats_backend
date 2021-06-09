@@ -68,7 +68,7 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.post("/api/get/alls/")
+@app.get("/api/get/alls/")
 async def get_gems_by_user():
   print("entering")
   try:

@@ -29,14 +29,14 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-# app.include_router(userinfo.router)
-# app.include_router(audio.router)
+app.include_router(userinfo.router)
+app.include_router(audio.router)
 app.include_router(gems.router)
 
 
 @app.get("/")
 def welcome():
-    return "EAT A DICK! :)"
+    return "Karats Backend :)"
 
 
 # firebaseConfig = {

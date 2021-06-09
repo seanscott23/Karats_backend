@@ -36,20 +36,21 @@ app = FastAPI()
 
 @app.get("/")
 def welcome():
-      return "Hello world"
+    return "Hello world"
 
 
-@app.post("api/get/all/")
+@app.post("/api/get/all/")
 def get_gems_by_user():
     try:
-        array_of_user_gems = []
-        all_gems = main.database.child("GEMS").get("#$#4")
-        
-        if type(all_gems) != 'NoneType':
-            for x in all_gems.pyres:
-                # if x.item[1]["ownerID"] == gem.ownerID:
-                array_of_user_gems.append(x.item)
-            return array_of_user_gems
+      print("money money")
+      array_of_user_gems = []
+      all_gems = main.database.child("GEMS").get("#$#4")
+      
+      if type(all_gems) != 'NoneType':
+        for x in all_gems.pyres:
+            # if x.item[1]["ownerID"] == gem.ownerID:
+            array_of_user_gems.append(x.item)
+        return array_of_user_gems
     except:
         return "Database is empty"
 

@@ -91,6 +91,5 @@ def get_gems():
 
 if __name__ == '__main__':
   print("hello from me")
-  uvicorn.run(app, host='0.0.0.0')
 
 

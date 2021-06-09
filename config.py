@@ -6,6 +6,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     # web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+    # web: uvicorn main:app --reload --host 0.0.0.0 --port ${PORT}
     API_KEY: str = os.getenv('API_KEY')
     AUTH_DOMAIN: str = os.getenv('AUTH_DOMAIN')
     DATABASE_URL: str = os.getenv('DATABASE_URL')

@@ -68,7 +68,7 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.post("/api/get/all/")
+@app.get("/api/get/all/")
 async def get_gems_by_user():
     try:
       array_of_user_gems = []
@@ -81,6 +81,11 @@ async def get_gems_by_user():
         return array_of_user_gems
     except:
       return "Database is empty"
+
+
+@app.post("/api")
+def get_gems():
+  return {"yessir": "crazy horse"}
 
 # if __name__ == '__main__':
 #    app.run()

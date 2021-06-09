@@ -28,15 +28,26 @@ app.add_middleware(
 app.include_router(userinfo.router)
 app.include_router(audio.router)
 
+# firebaseConfig = {
+#   "apiKey": settings.API_KEY,
+#   "authDomain": settings.AUTH_DOMAIN,
+#   "databaseURL": settings.DATABASE_URL,
+#   "projectId": settings.PROJECT_ID,
+#   "storageBucket": settings.STORAGE_BUCKET,
+#   "messagingSenderId": settings.MESSAGING_SENDER_ID,
+#   "appId": settings.APP_ID,
+#   "measurementId": settings.MEASUREMENT_ID
+# };
+
 firebaseConfig = {
-  "apiKey": settings.API_KEY,
-  "authDomain": settings.AUTH_DOMAIN,
-  "databaseURL": settings.DATABASE_URL,
-  "projectId": settings.PROJECT_ID,
-  "storageBucket": settings.STORAGE_BUCKET,
-  "messagingSenderId": settings.MESSAGING_SENDER_ID,
-  "appId": settings.APP_ID,
-  "measurementId": settings.MEASUREMENT_ID
+  "apiKey": API_KEY_TEST,
+  "authDomain": AUTH_DOMAIN_TEST,
+  "databaseURL": DATABASE_URL_TEST,
+  "projectId": PROJECT_ID_TEST,
+  "storageBucket": STORAGE_BUCKET_TEST,
+  "messagingSenderId": MESSAGING_SENDER_ID_TEST,
+  "appId": APP_ID_TEST,
+  "measurementId": MEASUREMENT_ID_TEST
 };
 
 

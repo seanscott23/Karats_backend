@@ -1,1 +1,1 @@
-web: daphne main:App
+web: daphne main:app

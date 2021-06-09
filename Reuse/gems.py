@@ -63,8 +63,9 @@ async def update_gem(gem: Gems):
     print(gem.token)
     return "Gem updated"
 
-@router.post("/api/get/all/")
+@router.post("/api/get/all")
 async def get_gems_by_user(gem:Gems):
+    print("Entering")
     try:
         array_of_user_gems = []
         all_gems = main.database.child("GEMS").get(gem.token)

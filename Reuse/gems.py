@@ -68,8 +68,8 @@ async def get_gems_by_user(gem:Gems):
     print("Entering")
     try:
         array_of_user_gems = []
-        print(gem.token)
-        all_gems = main.database.child("GEMS").get(gem.token)
+        # all_gems = main.database.child("GEMS").get(gem.token)
+        all_gems = main.database.child("GEMS").get()
         if type(all_gems) != 'NoneType':
             for x in all_gems.pyres:
                 print(x.val())

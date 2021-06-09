@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
+uvicorn = "*"
+fastapi = "*"
 
 [dev-packages]
 

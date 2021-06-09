@@ -73,9 +73,7 @@ async def get_gems_by_user():
   print("entering")
   # try:
   array_of_user_gems = []
-  print(database.child("GEMS"))
-  all_gems = database.child("GEMS").get("eyJhbGciOiJSUzI1NiIsImtpZCI6ImFiMGNiMTk5Zjg3MGYyOGUyOTg5YWI0ODFjYzJlNDdlMGUyY2MxOWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZ2Vtcy10ZXN0LWI5MzRkIiwiYXVkIjoiZ2Vtcy10ZXN0LWI5MzRkIiwiYXV0aF90aW1lIjoxNjIzMjcyMzU1LCJ1c2VyX2lkIjoiZklJMHBLSzNQWU1DVFNOSG11czlXWkZtakRIMyIsInN1YiI6ImZJSTBwS0szUFlNQ1RTTkhtdXM5V1pGbWpESDMiLCJpYXQiOjE2MjMyNzIzNTUsImV4cCI6MTYyMzI3NTk1NSwiZW1haWwiOiJiZXJyeWJpbW9uQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImJlcnJ5Ymltb25AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.rvxWY5LAch2EtJanq--yJydMb59jZ4elfThKZNEX5w_GlXFPSFGGc9GFZlV_lC2L-qiNpcfhEzDOBivVRevcV0w2JRcpFqSpvXgNIm8CnXrj-F50U1j5gvPgbZ3oj3wlkf2QNcWeV892luJM26YbEkdCv0KWzoNDtVkq5xxvlet4wCybIDvTBTWrzoFgg2weZPrYYJHsU_Z4bMMcz0PWuglideRzPt7ggKsoGxXCxy9XJ6D9JD3u2b4VBXYKg5_hD6NjjldUuvpWu3UjRcdJaLGFZic3uM5uFnDy4WAoGPoknTukn1kphA0cg6EbUFvqHaG_CToKchEVjQxIuSC26A")
-  print(all_gems.val())
+  all_gems = database.child("GEMS").get()
   if type(all_gems) != 'NoneType':
     for x in all_gems.pyres:
       print("entering2")   

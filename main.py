@@ -9,6 +9,8 @@ import pyrebase
 import pymongo
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from Reuse import gems
+from Reuse import user
 
 settings = config.Settings()
 app = FastAPI()
@@ -16,6 +18,7 @@ app = FastAPI()
 origins = [
   "http://localhost:3000/*",
   "http://localhost:3000",
+  "http://www.karatsapp.com",
 ]
 
 app.add_middleware(
@@ -28,6 +31,8 @@ app.add_middleware(
 
 app.include_router(userinfo.router)
 app.include_router(audio.router)
+app.include_router(gems.router)
+app.include_router(user.router)
 
 # firebaseConfig = {
 #   "apiKey": settings.API_KEY,

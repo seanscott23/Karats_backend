@@ -77,6 +77,7 @@ PyYAML = "==5.4.1"
 daphne = "*"
 ffprobe = "*"
 ffmpeg = "*"
+ffprobe-python = "*"
 
 [dev-packages]
 

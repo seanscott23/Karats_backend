@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fb79405241becd4c172f12b86679d20404b5f95bd23d070985fc19370e8ab061"
+            "sha256": "990aa6f497854deaf95b1c8fe3b0b8e2069e4fed67875b0b8f6c807d22f96699"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -237,6 +237,14 @@
             ],
             "index": "pypi",
             "version": "==0.5"
+        },
+        "ffprobe-python": {
+            "hashes": [
+                "sha256:b02576228f6da0b0bb973e15e5dadb132013a4ded202dabb89ac77779e9634d6",
+                "sha256:b1d3e69e65e0814e28575f63a47b836a0b7cc8f1ffedd62d27152d9e4488214a"
+            ],
+            "index": "pypi",
+            "version": "==1.0.3"
         },
         "firebase-admin": {
             "hashes": [

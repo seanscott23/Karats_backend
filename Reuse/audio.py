@@ -8,8 +8,7 @@ import main
 from io import BytesIO
 import base64
 from Reuse.Helper import Helper
-import sys
-sys.path.append('/path/to/ffmpeg')
+import ffprobe
 
 router = APIRouter()
 class Audio(BaseModel):

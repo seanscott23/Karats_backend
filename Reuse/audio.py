@@ -8,7 +8,6 @@ import main
 from io import BytesIO
 import base64
 from Reuse.Helper import Helper
-import ffprobe-python
 
 router = APIRouter()
 class Audio(BaseModel):

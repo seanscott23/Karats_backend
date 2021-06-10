@@ -10,7 +10,6 @@ import base64
 from Reuse.Helper import Helper
 
 router = APIRouter()
-
 class Audio(BaseModel):
     userID: str
     token: str
@@ -20,7 +19,10 @@ class Audio(BaseModel):
 
 @router.post("/api/deliver/audio/")
 def post_audio(audioMeta: Audio):
+    print("here i am")
+    print(audioMeta.url)
     audio = requests.get(audioMeta.url, timeout=10)
+    print(audio)
     audioID = Helper.getAudioID(audio.url)
     original = AudioSegment.from_mp3(BytesIO(audio.content))
     begin = audioMeta.begin * 1000

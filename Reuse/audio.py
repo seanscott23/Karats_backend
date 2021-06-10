@@ -22,7 +22,7 @@ def post_audio(audioMeta: Audio):
     print("here i am")
     print(audioMeta.url)
     audio = requests.get(audioMeta.url, timeout=10)
-    print(audio)
+    print(audio.url)
     audioID = Helper.getAudioID(audio.url)
     original = AudioSegment.from_mp3(BytesIO(audio.content))
     begin = audioMeta.begin * 1000

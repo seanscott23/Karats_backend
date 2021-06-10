@@ -75,6 +75,8 @@ requests-toolbelt = "==0.9.1"
 Pyrebase = "==3.0.18"
 PyYAML = "==5.4.1"
 daphne = "*"
+ffprobe = "*"
+ffmpeg = "*"
 
 [dev-packages]
 

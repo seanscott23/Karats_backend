@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "46d614da68324f2a9bb31f0629c2bb17911cbcfb11bf4dc675af98edb6233476"
+            "sha256": "fb79405241becd4c172f12b86679d20404b5f95bd23d070985fc19370e8ab061"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -223,6 +223,20 @@
             ],
             "index": "pypi",
             "version": "==0.65.1"
+        },
+        "ffmpeg": {
+            "hashes": [
+                "sha256:6931692c890ff21d39938433c2189747815dca0c60ddc7f9bb97f199dba0b5b9"
+            ],
+            "index": "pypi",
+            "version": "==1.4"
+        },
+        "ffprobe": {
+            "hashes": [
+                "sha256:f7dc048df62c6ccc1c602c865a7f0976b2679200fd07ebdc34ce51e9a8205b76"
+            ],
+            "index": "pypi",
+            "version": "==0.5"
         },
         "firebase-admin": {
             "hashes": [

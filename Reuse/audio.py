@@ -22,7 +22,7 @@ def post_audio(audioMeta: Audio):
     print("here i am")
     print(audioMeta.url)
     audio = requests.get(audioMeta.url, timeout=10)
-    audioID = getAudioID(audio.url)
+    audioID = Helper.getAudioID(audio.url)
     original = AudioSegment.from_mp3(BytesIO(audio.content))
     begin = audioMeta.begin * 1000
     end = audioMeta.end * 1000
@@ -42,7 +42,7 @@ def sendAudioToStorage(audioID, sectionOfAudio, userID, token):
 def get_audio(userID, audioID):
     return main.storage.child(userID).get_url(audioID)
 
-def getAudioID(audioUrl):
-    print(audioUrl)
-    audioUrlList = audioUrl.split("/")
-    return audioUrlList[3]
+# def getAudioID(audioUrl):
+#     print(audioUrl)
+#     audioUrlList = audioUrl.split("/")
+#     return audioUrlList[3]

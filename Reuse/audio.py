@@ -31,7 +31,7 @@ def post_audio(audioMeta: Audio):
     section.export(buf, format="mp3")
     sendAudioToStorage(audioID, buf, audioMeta.userID, audioMeta.token)
     json_response = jsonable_encoder({"trimmed_audio_url": get_audio(audioMeta.userID, audioID)})
-    return json_response
+    return {"trimmed_audio_url": get_audio(audioMeta.userID, audioID)}
 
 def sendAudioToStorage(audioID, sectionOfAudio, userID, token):
     main.storage.child(userID).child(audioID).put(sectionOfAudio, token)

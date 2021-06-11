@@ -78,6 +78,7 @@ daphne = "*"
 ffprobe = "*"
 ffmpeg = "*"
 ffprobe-python = "*"
+pyrebase4 = "*"
 
 [dev-packages]
 

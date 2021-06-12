@@ -30,9 +30,8 @@ def post_audio(audioMeta: Audio):
     buf = BytesIO()
     section.export(buf, format="mp3")
     sendAudioToStorage(audioID, buf, audioMeta.userID, audioMeta.token)
-    # json_response = jsonable_encoder({"trimmed_audio_url": get_audio(audioMeta.userID, audioID)})
-    # return json_response
-    return {"404":"not found"}
+    json_response = jsonable_encoder({"trimmed_audio_url": get_audio(audioMeta.userID, audioID)})
+    return json_response
 
 def sendAudioToStorage(audioID, sectionOfAudio, userID, token):
     main.storage.child(userID).child(audioID).put(sectionOfAudio, token)

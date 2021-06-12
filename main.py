@@ -18,10 +18,12 @@ app = FastAPI()
 origins = [
   "http://localhost:3000/*",
   "http://localhost:3000",
-  "http://www.karatsapp.com",
-  "https://www.karatsapp.com",
+  "http://www.karatsapp.com/",
+  "https://www.karatsapp.com/",
   "http://www.karatsapp.com/*",
   "https://www.karatsapp.com/*"
+  "http://www.karatsapp.com",
+  "https://www.karatsapp.com",
 ]
 
 app.add_middleware(

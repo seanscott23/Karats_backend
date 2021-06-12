@@ -38,7 +38,7 @@ def sendAudioToStorage(audioID, sectionOfAudio, userID, token):
 
 @router.get("/api/receive/audio")
 def get_audio(userID, audioID):
-    return main.storage.child(userID).get_url(audioID)
+    return main.storage.child(userID).child(audioID).get_url(audioID)
 
 # def getAudioID(audioUrl):
 #     print(audioUrl)

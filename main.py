@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from pymongo import MongoClient
 from routers import userinfo
 from Reuse import audio
+from Reuse import user
 import config
 import pyrebase
 import pymongo
@@ -37,6 +38,7 @@ app.add_middleware(
 app.include_router(userinfo.router)
 app.include_router(audio.router)
 app.include_router(gems.router)
+app.include_router(user.router)
 
 
 @app.get("/")

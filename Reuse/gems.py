@@ -34,7 +34,7 @@ def get_gems_by_user(gem:Gems):
     print("finally hitting")
     try:
         array_of_user_gems = []
-        all_gems = main.database.child("GEMS").get(gem.token)
+        all_gems = main.database.child("GEMS").get()
         
         if type(all_gems) != 'NoneType':
             for x in all_gems.pyres:

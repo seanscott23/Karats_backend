@@ -8,7 +8,7 @@ class Gems(BaseModel):
     gemID: Optional[str] = ""
     token: Optional[str] = ""
     ownerID: Optional[str] = ""
-    duration: Optional[int] = ""
+    duration: Optional[str] = 0
     audioURL: Optional[str] = ""
     title: Optional[str] = ""
     description: Optional[str] = "" 

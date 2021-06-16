@@ -1,1 +1,1 @@
-web: uvicorn main:app --reload --workers 4 --host 0.0.0.0 --port ${PORT}
+web: uvicorn main:app --reload --workers Integer(os.environ.get('WEB_CONCURRENCY') || 3) --host 0.0.0.0 --port ${PORT}

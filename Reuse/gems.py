@@ -8,6 +8,7 @@ class Gems(BaseModel):
     gemID: Optional[str] = ""
     token: Optional[str] = ""
     ownerID: Optional[str] = ""
+    duration: Optional[str] = ""
     audioURL: Optional[str] = ""
     title: Optional[str] = ""
     description: Optional[str] = "" 
@@ -20,22 +21,20 @@ class Gems(BaseModel):
 def post_gems_(gem: Gems):
     main.database.child("GEMS").push({
         "ownerID": gem.ownerID,
+        "duration": gem.duration,
         "audioURL": gem.audioURL,
         "title": gem.title,
         "description": gem.description,
         "categories": gem.categories,
-        "explicit": gem.explicit,
-        "duration": gem.duration,
+        "explicit": gem.explicit
     }, gem.token)
     return "GEM ADDED"
   
 @router.post("/api/get/gems/")
 def get_gems_by_user(gem:Gems):
-    print("finally hitting")
     try:
         array_of_user_gems = []
-        all_gems = main.database.child("GEMS").get()
-        
+        all_gems = main.database.child("GEMS").get(gem.token)
         if type(all_gems) != 'NoneType':
             for x in all_gems.pyres:
                 if x.item[1]["ownerID"] == gem.ownerID:
@@ -52,15 +51,15 @@ async def remove_gem(gem: Gems):
 
 @router.put("/api/update/gem/")
 async def update_gem(gem: Gems):
-    updated_gem = main.database.child("GEMS").child(gem.gemID).update({
+    main.database.child("GEMS").child(gem.gemID).update({
         "ownerID": gem.ownerID,
+        "duration": gem.duration,
         "audioURL": gem.audioURL,
         "title": gem.title,
         "description": gem.description,
         "categories": gem.categories,
         "explicit": gem.explicit
     },gem.token)
-    print(gem.token)
     return "Gem updated"
 
 @router.post("/api/get/all/")

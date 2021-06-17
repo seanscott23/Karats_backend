@@ -19,7 +19,7 @@ class Audio(BaseModel):
 
 @router.post("/api/deliver/audio/")
 def post_audio(audioMeta: Audio):
-    audio = requests.get(audioMeta.url, timeout=10)
+    audio = requests.get(audioMeta.url, timeout=600)
     audioID = Helper.getAudioID(audio.url)
     original = AudioSegment.from_mp3(BytesIO(audio.content))
     begin = audioMeta.begin * 1000

@@ -41,12 +41,6 @@ app.include_router(audio.router)
 app.include_router(gems.router)
 app.include_router(user.router)
 
-
-@app.get("/")
-def welcome():
-    return "Karats Backend :)"
-
-
 # firebaseConfig = {
 #   "apiKey": settings.API_KEY,
 #   "authDomain": settings.AUTH_DOMAIN,
@@ -76,25 +70,7 @@ storage = firebase.storage()
 database = firebase.database()
 
 
-@app.get("/api/get/alls/")
-async def get_gems_by_user():
-  try:
-    array_of_user_gems = []
-    all_gems = database.child("GEMS").get()
-    if type(all_gems) != 'NoneType':
-      for x in all_gems.pyres:  
-        print(x.val())
-        array_of_user_gems.append(x.item)
-      return { "val" : array_of_user_gems }
-  except:
-    return "Database is empty"
-
-
-@app.post("/api")
-def get_gems():
-  return {"yessir": "crazy horse"}
-
 if __name__ == '__main__':
-  print("hello from me")
+  print("Hello from me")
 
 

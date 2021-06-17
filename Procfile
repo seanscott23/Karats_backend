@@ -1,1 +1,1 @@
-web: uvicorn main:app --workers 14 --reload --host 0.0.0.0 --port ${PORT}
+web: uvicorn main:app --workers 14 --reload --timeout-keep-alive 10 --host 0.0.0.0 --port ${PORT}

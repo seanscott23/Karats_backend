@@ -28,7 +28,6 @@ def post_audio(audioMeta: Audio):
     buf = BytesIO()
     section.export(buf, format="mp3")
     stat = sendAudioToStorage(audioID, buf, audioMeta.userID, audioMeta.token)
-    print(stat, "is here")
     json_response = jsonable_encoder({"trimmed_audio_url": get_audio(audioMeta.userID, audioID, audioMeta.token)})
     return json_response
 

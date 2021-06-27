@@ -79,6 +79,7 @@ ffprobe = "*"
 ffmpeg = "*"
 ffprobe-python = "*"
 pyrebase4 = "*"
+buzzsprout = "*"
 
 [dev-packages]
 

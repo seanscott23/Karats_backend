@@ -25,7 +25,8 @@ origins = [
   "https://www.karatsapp.com/*"
   "http://www.karatsapp.com",
   "https://www.karatsapp.com",
-  "*"
+  "*",
+  'https://www.buzzsprout.com/*
 ]
 
 app.add_middleware(

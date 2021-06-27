@@ -23,19 +23,19 @@ class Audio(BaseModel):
 
 @router.post("/api/get/file")
 def getFile(audioMeta: Audio):
-    audio = Helper.getAudioID(audio.url)
+    audioID = Helper.getAudioID(audio.url)
+    audio = buzzsprout.get(audioID, "")
     print(audio)
     return audio
     
 
 @router.post("/api/deliver/audio/")
 def post_audio(audioMeta: Audio):
-    # audio = requests.get(audioMeta.url, headers={
-        # 'Access-Control-Allow-Origin':'*',
-        # 'Access-Control-Allow-Methods': '*'
-        # }, timeout=600)
+    audio = requests.get(audioMeta.url, headers={
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Methods': '*'
+        }, timeout=600)
     audioID = Helper.getAudioID(audio.url)
-    audio = buzzsprout.get(audioID, "")
     print(audio)
     original = AudioSegment.from_mp3(BytesIO(audio.content))
     begin = audioMeta.begin * 1000

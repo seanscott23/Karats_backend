@@ -34,7 +34,7 @@ def post_audio(audioMeta: Audio):
     audio = requests.get(audioMeta.url, headers={
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Methods': '*'
-        }, timeout=600)
+        }, timeout=60)
     audioID = Helper.getAudioID(audio.url)
     print(audio)
     original = AudioSegment.from_mp3(BytesIO(audio.content))

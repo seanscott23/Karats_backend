@@ -17,6 +17,16 @@ class Audio(BaseModel):
     begin: int
     end: int
 
+
+@router.post("/api/get/file")
+def getFile(audioMeta: Audio):
+    audio = requests.get(audioMeta.url, headers={
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods': '*'
+    }, timeout=600)
+    return audio
+    
+
 @router.post("/api/deliver/audio/")
 def post_audio(audioMeta: Audio):
     audio = requests.get(audioMeta.url, headers={

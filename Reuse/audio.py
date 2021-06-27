@@ -8,8 +8,11 @@ import main
 from io import BytesIO
 import base64
 from Reuse.Helper import Helper
+from buzzsprout import Buzzsprout
 
 router = APIRouter()
+buzzsprout = Buzzsprout()
+
 class Audio(BaseModel):
     userID: str
     token: str
@@ -20,10 +23,8 @@ class Audio(BaseModel):
 
 @router.post("/api/get/file")
 def getFile(audioMeta: Audio):
-    audio = requests.get(audioMeta.url, headers={
-    'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods': '*'
-    }, timeout=600)
+    audio = Helper.getAudioID(audio.url)
+    print(audio)
     return audio
     
 

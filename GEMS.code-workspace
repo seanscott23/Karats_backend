@@ -5,7 +5,12 @@
 		},
 		{
 			"path": "../gems-website"
+		},
+		{
+			"path": "../../Desktop/LoanProgram"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }
